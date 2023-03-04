@@ -1,16 +1,18 @@
 package com.arche.report.commands;
 
+import com.arche.report.tranbox.methods.PrintSummaryReport;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellOption;
 
 @ShellComponent
 public class ReportCommands {
     private boolean generated;
 
-    @ShellMethod(value = "Generate the summary report.", key = "gen")
-    public void generate(String path){
-        //the big stuff goes here
+    @ShellMethod(value = "Generate the summary report.", key = "extract")
+    public void generate(@ShellOption(value = { "-p" }) String path){
+        PrintSummaryReport.printSummary(path);
     }
 
     @ShellMethod(value="Exports a cleaned xlsx file from the original file.", key = "exp")
