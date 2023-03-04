@@ -1,4 +1,4 @@
-package com.arche.report.modifiers;
+package com.arche.report.tranbox.modifiers;
 
 import com.arche.report.tranbox.models.CleanedData;
 import com.arche.report.tranbox.models.SummaryReport;
