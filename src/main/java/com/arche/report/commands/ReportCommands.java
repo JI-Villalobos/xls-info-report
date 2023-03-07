@@ -13,6 +13,7 @@ public class ReportCommands {
     @ShellMethod(value = "Generate the summary report.", key = "extract")
     public void generate(@ShellOption(value = { "-p" }) String path){
         PrintSummaryReport.printSummary(path);
+        generated = true;
     }
 
     @ShellMethod(value="Exports a cleaned xlsx file from the original file.", key = "exp")

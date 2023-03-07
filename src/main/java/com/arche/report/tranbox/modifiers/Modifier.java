@@ -37,10 +37,11 @@ public class Modifier {
         return dates;
     }
 
-    private static SummaryReport summarizeTotal(List<Double> totals, String date){
+    private static SummaryReport summarizeTotal(List<Double> totals, List<Double> commissions, String date){
         Double granTotal = totals.stream().reduce(0.0, Double::sum);
+        Double commTotal = commissions.stream().reduce(0.0, Double::sum);
 
-        return new SummaryReport(date, granTotal);
+        return new SummaryReport(date, granTotal, commTotal);
     }
 
     public static List<SummaryReport> summarize(List<CleanedData> cleanedData){
@@ -49,11 +50,14 @@ public class Modifier {
 
         dates.forEach(d -> {
             List<Double> totals = new ArrayList<>();
+            List<Double> commissions = new ArrayList<>();
             cleanedData.forEach(data -> {
-                if (data.date().equals(d))
+                if (data.date().equals(d)){
                     totals.add(data.withCommission());
+                    commissions.add(data.commission());
+                }
             });
-            SummaryReport summaryReport = summarizeTotal(totals, d);
+            SummaryReport summaryReport = summarizeTotal(totals, commissions, d);
             summaryReportList.add(summaryReport);
         });
 

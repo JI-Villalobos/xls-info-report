@@ -28,9 +28,9 @@ public class PrintSummaryReport {
 
         System.out.println("Summary of earnings per day including commissions");
         System.out.println("--------------------------------------------------");
-        System.out.println("   DATE    |   TOTAL   ");
+        System.out.println("   DATE    |   TOTAL  | COMMISSIONS ");
         summaryReportList.forEach(sr -> {
-            System.out.println(sr.date() + " | " + sr.granTotal());
+            System.out.println(sr.date() + " | " + sr.granTotal() + " | " + sr.commissions());
         });
     }
 }
