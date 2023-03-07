@@ -1,6 +1,7 @@
 package com.arche.report.tranbox.utils;
 
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class SheetFormat {
         }
         sheet.removeMergedRegions(indexes);
         System.out.println("Remaining merged regions: " + sheet.getNumMergedRegions());
+        sheet.setAutoFilter(new CellRangeAddress(2, 2, 0, 15));
 
         return sheet;
     }

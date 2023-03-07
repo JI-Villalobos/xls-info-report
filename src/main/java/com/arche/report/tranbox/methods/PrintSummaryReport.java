@@ -8,6 +8,7 @@ import com.arche.report.tranbox.modifiers.Filter;
 import com.arche.report.tranbox.modifiers.Synthesizer;
 import com.arche.report.tranbox.readers.DataReader;
 import com.arche.report.tranbox.readers.DateReader;
+import com.arche.report.tranbox.utils.Commission;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.List;
@@ -32,5 +33,7 @@ public class PrintSummaryReport {
         summaryReportList.forEach(sr -> {
             System.out.println(sr.date() + " | " + sr.granTotal() + " | " + sr.commissions());
         });
+        System.out.println("--------------------------------------------------");
+        System.out.println("Total commissions: "  + Commission.totalCommissions(summaryReportList));
     }
 }
