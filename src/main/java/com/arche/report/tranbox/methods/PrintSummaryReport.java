@@ -9,13 +9,14 @@ import com.arche.report.tranbox.modifiers.Synthesizer;
 import com.arche.report.tranbox.readers.DataReader;
 import com.arche.report.tranbox.readers.DateReader;
 import com.arche.report.tranbox.utils.Commission;
+import com.arche.report.tranbox.utils.Global;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.List;
 
 public class PrintSummaryReport {
-    public static void printSummary(String path){
-        Sheet sheet = SheetInstance.createInstance(path);
+    public static void printSummary(String filename){
+        Sheet sheet = SheetInstance.createInstance(filename);
         ReportDateInfo dateInfo = DateReader.readDate(sheet);
         System.out.println("This report correspond to: " + dateInfo.initialDate() + " to: " + dateInfo.finalDate());
 

@@ -11,8 +11,8 @@ public class ReportCommands {
     private boolean generated;
 
     @ShellMethod(value = "Generate the summary report.", key = "extract")
-    public void generate(@ShellOption(value = { "-p" }) String path){
-        PrintSummaryReport.printSummary(path);
+    public void generate(@ShellOption(value = { "-p" }) String filename){
+        PrintSummaryReport.printSummary(filename);
         generated = true;
     }
 
