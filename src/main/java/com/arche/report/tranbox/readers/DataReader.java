@@ -8,8 +8,18 @@ import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * This class check the report raw information
+ * @author arche
+ * @version 1.0
+ */
 public class DataReader {
+    /**
+     * Extract data information from a report sales
+     * @param sheet A sheet instance, it assumes the instance is formatted
+     * @return A TranboxData model object
+     * @see TranboxData
+     */
     public static List<TranboxData> readData(Sheet sheet){
         List<TranboxData> data = new ArrayList<>();
         String date = "";

@@ -10,7 +10,18 @@ import org.apache.poi.ss.usermodel.Sheet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class check the headers/columns from a sheet instance
+ * @author arche
+ * @version 1.0
+ */
 public class ColumnNameReader {
+    /**
+     * Extract the name of every column
+     * @param sheet A sheet instance
+     * @return A list o headers representing color names
+     * @see Header
+     */
     public static List<Header> readRowHeader(Sheet sheet){
         List<Header> headers = new ArrayList<>();
         String header = "";
