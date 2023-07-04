@@ -9,7 +9,6 @@ import com.arche.report.tranbox.modifiers.Synthesizer;
 import com.arche.report.tranbox.readers.DataReader;
 import com.arche.report.tranbox.readers.DateReader;
 import com.arche.report.tranbox.utils.Commission;
-import com.arche.report.tranbox.utils.Global;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.List;
