@@ -10,7 +10,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This class modifies the TranboxData model adding commissions column
+ * @author arche
+ * @version 1.0
+ */
 public class Modifier {
+    /**
+     * This method modifies the base TranboxData object with a commission field.
+     * Generates cleaned data with resumed sales report
+     * @param dataList A TranboxData collection
+     * @return CleanedData model object
+     * @see CleanedData
+     * @see TranboxData
+     */
     public static List<CleanedData> addCommissionColumn(List<TranboxData> dataList){
         List<CleanedData> cleanedDataList = new ArrayList<>();
         dataList.forEach(data -> {
@@ -44,6 +57,13 @@ public class Modifier {
         return new SummaryReport(date, granTotal, commTotal);
     }
 
+    /**
+     * Summarize from a CleanedData the information that the end user will visualize
+     * @param cleanedData A List of CleanedData
+     * @return SummaryReport model list
+     * @see CleanedData
+     * @see SummaryReport
+     */
     public static List<SummaryReport> summarize(List<CleanedData> cleanedData){
         Set<String> dates = getDates(cleanedData);
         List<SummaryReport> summaryReportList = new ArrayList<>();
