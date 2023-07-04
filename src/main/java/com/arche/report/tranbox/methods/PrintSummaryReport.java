@@ -13,7 +13,16 @@ import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.List;
 
+/**
+ * This Class represent the whole process to generate the final report of sales
+ * @author arche
+ * @version 1.0
+ */
 public class PrintSummaryReport {
+    /**
+     * Print the generated report
+     * @param filename Directory path of the target file
+     */
     public static void printSummary(String filename){
         Sheet sheet = SheetInstance.createInstance(filename);
         ReportDateInfo dateInfo = DateReader.readDate(sheet);
