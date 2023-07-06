@@ -23,11 +23,12 @@ public class WorkbookInstance {
      * @see FileTypeVerifier
      */
     public static Workbook createInstance(String filename){
-        Format format = FileTypeVerifier.verify(Global.BASE_PATH + filename);
+        String desktopDir = Global.getDir() + filename;
+        Format format = FileTypeVerifier.verify(desktopDir);
         Workbook workbook = null;
 
         try {
-            FileInputStream inputStream =new FileInputStream(Global.BASE_PATH + filename);
+            FileInputStream inputStream =new FileInputStream(desktopDir);
             switch (format){
                 case XLS -> workbook = new HSSFWorkbook(inputStream);
                 case XLSX -> workbook = new XSSFWorkbook(inputStream);
