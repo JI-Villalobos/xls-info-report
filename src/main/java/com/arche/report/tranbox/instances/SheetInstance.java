@@ -21,6 +21,6 @@ public class SheetInstance {
         Workbook workbook = WorkbookInstance.createInstance(filename);
         Sheet sheet = workbook.getSheetAt(0);
 
-        return SheetFormat.removeMergedRegions(sheet);
+        return SheetFormat.format(sheet);
     }
 }

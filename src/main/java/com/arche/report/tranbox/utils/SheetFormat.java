@@ -29,8 +29,26 @@ public class SheetFormat {
         }
         sheet.removeMergedRegions(indexes);
         System.out.println("Remaining merged regions: " + sheet.getNumMergedRegions());
+
+        return sheet;
+    }
+
+    private static void addAutoFilter(Sheet sheet){
         sheet.setAutoFilter(new CellRangeAddress(2, 2, 0, 15));
+    }
+
+    /**
+     * set formatting for a specific sheet instance
+     * @param sheet an instance of Sheet
+     * @return A formatted new sheet instance
+     * @see com.arche.report.tranbox.instances.SheetInstance
+     */
+    public static Sheet format(Sheet sheet){
+        removeMergedRegions(sheet);
+        addAutoFilter(sheet);
 
         return sheet;
     }
 }
+
+
