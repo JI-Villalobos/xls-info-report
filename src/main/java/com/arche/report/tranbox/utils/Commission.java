@@ -41,4 +41,12 @@ public class Commission {
 
         return commissions.stream().reduce(0.0, Double::sum);
     }
+
+    public static Double finalAmount(List<SummaryReport> summaryReportList){
+        List<Double> totals = new ArrayList<>();
+
+        summaryReportList.forEach(summaryReport -> totals.add(summaryReport.granTotal()));
+
+        return totals.stream().reduce(0.0, Double::sum);
+    }
 }

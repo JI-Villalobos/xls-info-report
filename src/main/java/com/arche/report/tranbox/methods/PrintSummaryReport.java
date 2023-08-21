@@ -44,5 +44,7 @@ public class PrintSummaryReport {
         });
         System.out.println("--------------------------------------------------");
         System.out.println("Total commissions: "  + Commission.totalCommissions(summaryReportList));
+        System.out.println("--------------------------------------------------");
+        System.out.println("Total amount: " + Commission.finalAmount(summaryReportList));
     }
 }
