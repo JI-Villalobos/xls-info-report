@@ -1,10 +1,14 @@
 package com.arche.report.commands;
 
+import com.arche.report.tranbox.methods.GenerateTranboxDataFile;
 import com.arche.report.tranbox.methods.PrintSummaryReport;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 @ShellComponent
 public class ReportCommands {
@@ -17,8 +21,8 @@ public class ReportCommands {
     }
 
     @ShellMethod(value="Exports a cleaned xlsx file from the original file.", key = "exp")
-    public void export(){
-        //a complex process
+    public void export() throws IOException {
+        GenerateTranboxDataFile.generateXLSX();
     }
 
     public Availability exportAvailability(){

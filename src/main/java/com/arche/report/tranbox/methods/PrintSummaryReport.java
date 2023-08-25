@@ -4,11 +4,13 @@ import com.arche.report.tranbox.instances.SheetInstance;
 import com.arche.report.tranbox.models.ReportDateInfo;
 import com.arche.report.tranbox.models.SummaryReport;
 import com.arche.report.tranbox.models.TranboxData;
+import com.arche.report.tranbox.models.TranboxDataSheet;
 import com.arche.report.tranbox.modifiers.Filter;
 import com.arche.report.tranbox.modifiers.Synthesizer;
 import com.arche.report.tranbox.readers.DataReader;
 import com.arche.report.tranbox.readers.DateReader;
 import com.arche.report.tranbox.utils.Commission;
+import com.arche.report.tranbox.utils.InMemoryData;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.List;
@@ -29,6 +31,9 @@ public class PrintSummaryReport {
         System.out.println("This report correspond to: " + dateInfo.initialDate() + " to: " + dateInfo.finalDate());
 
         List<TranboxData> dataList = DataReader.readData(sheet);
+
+        TranboxDataSheet dataSheet = new TranboxDataSheet(dateInfo, dataList);
+        InMemoryData.add(dataSheet);
 
         Filter filter = new Filter();
         Synthesizer synthesizer = new Synthesizer();
